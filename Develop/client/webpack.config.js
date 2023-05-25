@@ -22,8 +22,11 @@ module.exports = () => {
         template: './index.html',
         title: 'Jate',
       }),
-
-      new GenerateSW(),
+      new InjectManifest({
+        clientsClaim: true,
+        skipWaiting: true,
+      }),
+      
       new WebpackPwaManifest({
         name: 'Jate Text Editor',
         short_name: 'Jate',
